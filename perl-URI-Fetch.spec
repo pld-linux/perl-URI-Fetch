@@ -6,7 +6,7 @@
 %define	pdir	URI
 %define	pnam	Fetch
 Summary:	URI::Fetch - Smart URI fetching/caching
-#Summary(pl.UTF-8):	
+Summary(pl.UTF-8):	URI::Fetch - inteligentne pobieranie/cache'owanie URI
 Name:		perl-URI-Fetch
 Version:	0.08
 Release:	1
@@ -20,8 +20,8 @@ BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
 BuildRequires:	perl-Class-ErrorHandler
-BuildRequires:	perl-libwww
 BuildRequires:	perl-URI
+BuildRequires:	perl-libwww
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -29,10 +29,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 URI::Fetch is a smart client for fetching HTTP pages, notably
 syndication feeds (RSS, Atom, and others), in an intelligent,
-bandwidth- and time-saving way. That means:
+bandwidth- and time-saving way.
 
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+URI::Fetch to sprytny klient do pobierania stron HTTP, w szczególności
+feedów zespolonych (RSS, Atom i innych) w sposób inteligentny,
+oszczędzający pasmo i czas.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
