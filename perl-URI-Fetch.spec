@@ -8,13 +8,13 @@
 Summary:	URI::Fetch - Smart URI fetching/caching
 Summary(pl.UTF-8):	URI::Fetch - inteligentne pobieranie/cache'owanie URI
 Name:		perl-URI-Fetch
-Version:	0.08
+Version:	0.09
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/URI/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	8fb5b27b33bd18006d6c11378ae5de8d
+# Source0-md5:	cfc746bb7f142f0f5b82ea80a4416f2b
 URL:		http://search.cpan.org/dist/URI-Fetch/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -40,17 +40,17 @@ oszczędzający pasmo i czas.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
