@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	URI
 %define	pnam	Fetch
 Summary:	URI::Fetch - Smart URI fetching/caching
